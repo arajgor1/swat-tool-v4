@@ -1,0 +1,112 @@
+═══════════════════════════════════════════════════════════════════════
+SARAH MITCHELL — STRATEGIC SOURCING BUYER
+13 HeyGen clips · A Day in the Life
+═══════════════════════════════════════════════════════════════════════
+
+Save each generated MP4 in this folder using the filename shown above
+each script. Filenames are matched verbatim by DEMO_VIDEO_MANIFEST in
+index.html — do not rename or the demo will fall back to TTS.
+
+
+───────────────────────────────────────────────────────────────────────
+[1/13]  01-morning-login.mp4
+        7:42 AM · MORNING LOGIN — Sarah opens SWAT to start her day
+───────────────────────────────────────────────────────────────────────
+
+It's seven forty-two. I just got my coffee. First thing I do every morning is open SWAT. This is my Product Review Board — it's basically my entire world in one screen. Before SWAT, I used to spend the first hour of my day opening spreadsheets, checking emails from suppliers, trying to figure out what was late. Now? I open this, and I already know. Everything here is live. No one had to update anything. Let me show you what I'm looking at.
+
+
+───────────────────────────────────────────────────────────────────────
+[2/13]  02-red-banner.mp4
+        7:43 AM · RED BANNER — Sarah spots four critical issues
+───────────────────────────────────────────────────────────────────────
+
+Okay, first thing I notice — this red banner. Four critical issues. That means four parts where something has gone seriously wrong and I need to act today. I can see ISS-1041 right away — that's a rear shock absorber for the Dirt model, twenty-two days with no Purchase Order Acknowledgement from TrailFlex. Twenty-two days. That's a potential line stoppage. Before SWAT, I might not have caught this until production called me in a panic. Now it's the first thing on my screen before I've even sat down.
+
+
+───────────────────────────────────────────────────────────────────────
+[3/13]  03-kpi-check.mp4
+        7:44 AM · KPI CHECK — Sarah scans her six key numbers
+───────────────────────────────────────────────────────────────────────
+
+I always glance at these six numbers before I do anything else. Four critical issues — up from two yesterday, so things got worse overnight. Nine at-risk parts across six POs. Our supplier OTIF is at seventy-four percent, which is below our eighty percent target. Average delay is three point eight days. That tells me today is going to be a busy one. The nice thing is — I can click any of these numbers and it takes me straight to the detail. The critical issues number drops me right into my filtered worklist. It's like a shortcut for my brain.
+
+
+───────────────────────────────────────────────────────────────────────
+[4/13]  04-kanban.mp4
+        7:45 AM · KANBAN — Sarah checks the Production Risk Kanban
+───────────────────────────────────────────────────────────────────────
+
+This Kanban is honestly my favourite part of SWAT. Five product models across eight rolling months, and every cell is coloured by the worst-case risk of any part in that build. I can see the Dirt model is red for April and May — that's my TrailFlex problem cascading through. Sports is amber for May. So two of our five product lines have elevated risk right now. I click the red cell for Dirt April and it filters my worklist to exactly the parts causing that risk. I don't have to hunt. I don't have to cross-reference anything. One click and I know exactly what to work on.
+
+
+───────────────────────────────────────────────────────────────────────
+[5/13]  05-triage.mp4
+        7:47 AM · TRIAGE — Sarah works her Issue Worklist
+───────────────────────────────────────────────────────────────────────
+
+Alright, here's my worklist. Twelve open issues, ranked by priority score. I always work top to bottom — SWAT already figured out the order for me. The top issue is CD-COM-11020, the rear shock from TrailFlex. Twenty-two days projected late. And look at this column — Projected Late. That's not how late it is now. That's how late it will be when it arrives. SWAT is predicting the future for me. That's a huge difference because it changes what I do about it. If something is going to be three days late, I can live with it. Twenty-two days? I'm picking up the phone.
+
+
+───────────────────────────────────────────────────────────────────────
+[6/13]  06-checkpoints.mp4
+        7:49 AM · CHECKPOINTS — Sarah reads the blocking milestones
+───────────────────────────────────────────────────────────────────────
+
+See this Checkpoint column? It tells me exactly what's stuck. For ISS-1041, the checkpoint is Purchase Order Acknowledgement. TrailFlex hasn't even confirmed they received the order. That's my conversation right there. I'm not going to call them and ask for a vague status update. I'm going to say — we sent Purchase Order 2026-08821 twenty-two days ago and you haven't acknowledged it. Where is it? For ISS-1038, the checkpoint is PF — Production Finish. AeroCarbon started production but hasn't confirmed it's done. Completely different conversation. SWAT tells me which question to ask each supplier before I pick up the phone.
+
+
+───────────────────────────────────────────────────────────────────────
+[7/13]  07-commits.mp4
+        7:52 AM · COMMITS — Sarah reviews the Supplier Commit Tracker
+───────────────────────────────────────────────────────────────────────
+
+Now I'm looking at the Supplier Commit Tracker. Every Purchase Order line, four milestone columns — Purchase Order Acknowledgement, Production Start, Production Finish, Shipment. Here's the thing most people don't realise — most of our Purchase Orders don't actually contain production or shipment dates. We only give the supplier a need-by date. SWAT fills in the rest. It calculates when production should have started, when it should finish, and when shipment should happen based on the lead times and manufacturing window. So I'm looking at a complete timeline that nobody had to enter manually. Red cells are overdue milestones. That's where I focus.
+
+
+───────────────────────────────────────────────────────────────────────
+[8/13]  08-buyer-actions.mp4
+        7:54 AM · BUYER ACTIONS — Sarah reads her AI-generated action items
+───────────────────────────────────────────────────────────────────────
+
+Every line in my commit tracker has a Buyer Action. A specific instruction telling me exactly what to do. For the TrailFlex rear shock — it says Escalate Now. No Purchase Order Acknowledgement after twenty-two days. Call supplier today. For the AeroCarbon frameset — Chase PF. Production Finish missing. Request confirmation by end of day. These aren't generic alerts. These are specific, context-aware instructions. And here's what's really changed my life — in autonomous mode, the escalation agent has already sent the email to TrailFlex before I even got to the office. So by the time I'm reading this, the supplier has already been contacted. I'm following up on work that's already been done.
+
+
+───────────────────────────────────────────────────────────────────────
+[9/13]  09-overnight-agents.mp4
+        7:56 AM · AGENTS — Sarah checks what the agents did overnight
+───────────────────────────────────────────────────────────────────────
+
+This is the part that honestly blew my mind when I first started using SWAT. Six autonomous agents have been running all night. The Comms Agent read every supplier email that came in overnight. The Escalation Agent sent formal notices to TrailFlex and SteelCore. The Risk Model Agent re-scored all thirteen Purchase Order lines. I didn't do any of this. I clicked Start Agents yesterday afternoon and went home. This morning, I'm reviewing what the system already did. My job has shifted from doing the work to reviewing the work. That's a massive change.
+
+
+───────────────────────────────────────────────────────────────────────
+[10/13] 10-comms-agent.mp4
+        7:58 AM · LIVE PROCESSING — Sarah watches the agent process an email
+───────────────────────────────────────────────────────────────────────
+
+Watch this. There's an unprocessed email from Jordan Blackwood at TrailFlex. The agent is reading it right now. It detected a delay signal — TrailFlex is saying they can ship by April fourteenth. The agent just extracted that date, updated the commit field for ISS-1041, marked the Purchase Order Acknowledgement milestone as received, recalculated the risk score, and sent a reply back to Jordan — all in about ten seconds. I didn't touch anything. The inbox now shows Replied. Every action is logged with a timestamp. A year ago, I would have read that email, opened a spreadsheet, updated three fields, drafted a reply, and copied my manager. That was thirty minutes of work. Now it's ten seconds and I didn't even do it.
+
+
+───────────────────────────────────────────────────────────────────────
+[11/13] 11-alert-queue.mp4
+        8:00 AM · ALERT QUEUE — Sarah clears the alert queue
+───────────────────────────────────────────────────────────────────────
+
+Quick check on the Alert Queue. Everything here was sent by the Escalation Agent overnight. Critical alerts, high-risk notices — all drafted and dispatched to the right supplier contacts without me approving any of them. I can see the TrailFlex escalation went out at six forty-two AM. SteelCore got a high-risk notice at seven fifteen. The suppliers already know there's a problem. When I call them at nine o'clock, they've had time to check internally. That makes my conversations so much more productive. I'm not breaking bad news anymore. I'm following up on a conversation the agent already started.
+
+
+───────────────────────────────────────────────────────────────────────
+[12/13] 12-supplier-intel.mp4
+        8:02 AM · SUPPLIER INTEL — Sarah reviews supplier performance data
+───────────────────────────────────────────────────────────────────────
+
+Last thing before my morning standup — I check supplier performance on the Performance Dashboard. TrailFlex is at seventy-two percent OTIF. SteelCore at sixty-eight. These numbers feed directly into the risk model. When TrailFlex misses a Purchase Order Acknowledgement, SWAT weights it heavier because their historical performance is poor. A ninety-five percent OTIF supplier missing a Purchase Order Acknowledgement gets a lower risk score because they almost always deliver. The model learns from history. I use this data in my supplier business reviews too. It's not anecdotal anymore. I can show them their trend line and have a data-backed conversation about what needs to change.
+
+
+───────────────────────────────────────────────────────────────────────
+[13/13] 13-wrapup.mp4
+        8:05 AM · DONE — How SWAT changed Sarah's life
+───────────────────────────────────────────────────────────────────────
+
+And that's my morning. I just triaged four critical issues, reviewed twelve open supply risks, validated supplier commits, checked overnight agent activity, cleared my alert queue, and reviewed supplier performance. Total time — about twelve minutes. Before SWAT, this exact same routine took me an hour and a half. I was opening SAP, cross-referencing Excel, reading twenty emails, manually updating trackers, drafting follow-up messages. Now the agents handle the chasing, the system handles the scoring, and I handle the decisions that actually need a human brain. My afternoons used to be firefighting. Now I have time for strategic sourcing work. That's the real difference. SWAT didn't just make me faster. It gave me my job back.

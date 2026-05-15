@@ -1,0 +1,72 @@
+═══════════════════════════════════════════════════════════════════════
+DAVID CHEN — PRODUCTION PLANNER
+8 HeyGen clips · A Day in the Life
+═══════════════════════════════════════════════════════════════════════
+
+Save each generated MP4 in this folder using the filename shown above
+each script. Filenames are matched verbatim by DEMO_VIDEO_MANIFEST in
+index.html — do not rename or the demo will fall back to TTS.
+
+
+───────────────────────────────────────────────────────────────────────
+[1/8]  01-arrival.mp4
+       6:55 AM · SHIFT START — David logs in before the production meeting
+───────────────────────────────────────────────────────────────────────
+
+It's six fifty-five. I get in early because the production standup is at seven thirty and I need to know what's going to blow up before everyone else does. My job is production planning. I need to know one thing every morning — are we going to build what we planned to build, or is something going to stop us? I open SWAT, and within about two minutes I have my answer. Let me walk you through what I see.
+
+
+───────────────────────────────────────────────────────────────────────
+[2/8]  02-kanban.mp4
+       6:56 AM · KANBAN — David scans the Production Risk Kanban
+───────────────────────────────────────────────────────────────────────
+
+This is the first thing I look at. The Production Risk Kanban. Five product models across eight rolling months. Every cell is coloured by the worst-case supply risk for that production slot. I can see Dirt is red for April and May — that means at least one critical part for the Dirt model is severely late. Sports is amber for May. So two of my five production lines have risk right now. Before SWAT, I'd find out about these problems when the line stopped. Or when a buyer sent me an email at four PM saying hey, by the way, your frameset isn't coming. Now I know at six fifty-six AM, before the standup even starts.
+
+
+───────────────────────────────────────────────────────────────────────
+[3/8]  03-drilldown.mp4
+       6:58 AM · DRILL-DOWN — David checks which parts are blocking production
+───────────────────────────────────────────────────────────────────────
+
+I click the red Dirt-April cell and it filters the worklist to the exact parts causing that risk. The rear shock absorber from TrailFlex — twenty-two days projected late. That's the one killing my April build. I can see the Projected Late column — that's not how late it is today, that's how late it's going to be when it arrives. Twenty-two days means I can't build forty-two Dirt bikes next month. That's real revenue. I need to know if I should pull the Sports build forward or push the Dirt build back. SWAT just told me the problem. Now I need to figure out the response.
+
+
+───────────────────────────────────────────────────────────────────────
+[4/8]  04-bom-cascade.mp4
+       7:02 AM · BOM CASCADE — David traces the shortage through the BOM
+───────────────────────────────────────────────────────────────────────
+
+Here's where it gets interesting as a planner. The rear shock isn't just in the Dirt model. I open the BOM Explorer and I can see every product that uses this component. The rear shock feeds into Dirt and Sports. So this single part shortage hits two product lines. A planner needs to see the cascade. It's never just one product. SWAT traces the cascade for me. I can see exactly which production runs are exposed, and I can make an informed decision about which one to protect and which one to reschedule. Before SWAT, I'd discover these cascades in the middle of a crisis. Now I see them before the standup.
+
+
+───────────────────────────────────────────────────────────────────────
+[5/8]  05-demand-gap.mp4
+       7:05 AM · DEMAND GAP — David checks demand vs supply alignment
+───────────────────────────────────────────────────────────────────────
+
+Demand Planning view. This is where I see the gap between what production needs and what procurement can deliver. April demand for Dirt is forty-two units. But with the rear shock twenty-two days late, my supply projection shows only about twenty arriving on time. That's a twenty-two-unit gap. Twenty-two bikes we can't ship. I can also see the Sports model has a softer gap in May — the frameset from AeroCarbon is late but less critical. So now I know the priority — protect the Dirt April build, and manage the Sports May risk as a secondary issue. This view gives me the production meeting agenda in thirty seconds.
+
+
+───────────────────────────────────────────────────────────────────────
+[6/8]  06-simulation.mp4
+       7:08 AM · SIMULATION — David runs a 7-day forward projection
+───────────────────────────────────────────────────────────────────────
+
+This is honestly the feature that saved my career. The Simulation Engine. I can run a seven-day forward projection that shows me how every open issue will evolve. I hit Run and watch — Day two, SteelCore confirms their shipment. Day four, the TrailFlex issue gets a revised commit for April fourteenth — that actually gives me three days of buffer if I move the Dirt build to Week fifteen. Day five, the AeroCarbon problem gets worse. So now I know — move the Dirt build to Week fifteen, keep Sports on schedule for now, and escalate the AeroCarbon issue to procurement as the top priority. Decision made. Three minutes. Before SWAT, I'd spend two hours in meetings arguing about what to reschedule based on gut feel. Now I have data.
+
+
+───────────────────────────────────────────────────────────────────────
+[7/8]  07-validation.mp4
+       7:12 AM · VALIDATION — David validates the recovery against supplier commits
+───────────────────────────────────────────────────────────────────────
+
+Before I walk into the standup and say we're moving the Dirt build, I need to validate it. The Supplier Commit Tracker shows me every Purchase Order line with its milestone dates. TrailFlex has a revised ship date of April fourteenth. That's three days before my adjusted production start. Buffer confirmed. AeroCarbon still has no production finish date confirmed. That's my evidence for the escalation request. I'm not walking into the meeting with a hunch. I'm walking in with — here's the data, here's the simulation, here's my recommendation, and here's the commit timeline that supports it. It takes about thirty seconds to validate. Then I'm ready.
+
+
+───────────────────────────────────────────────────────────────────────
+[8/8]  08-wrapup.mp4
+       7:15 AM · READY — How SWAT changed David's life
+───────────────────────────────────────────────────────────────────────
+
+It's seven fifteen. I've been at my desk for twenty minutes. I know exactly which production lines are at risk, which parts are causing the problems, how the shortages cascade through the BOM, what the demand gaps look like, what happens if I adjust the schedule, and whether the supplier commits support my plan. Before SWAT, this process took the entire morning. I'd spend two hours on emails, phone calls, and spreadsheet reconciliation, and I'd still walk into the standup uncertain. Now I walk in with a simulation-backed recommendation and supplier commit validation. My planners used to be reactive — we'd find out about problems when they hit the line. Now we see them coming a month out. That's the difference. SWAT turned me from a firefighter into a planner. Which is, you know, literally my job title.

@@ -1,0 +1,72 @@
+═══════════════════════════════════════════════════════════════════════
+MARIA GONZALEZ — PLANT OPERATIONS MANAGER
+8 HeyGen clips · A Day in the Life
+═══════════════════════════════════════════════════════════════════════
+
+Save each generated MP4 in this folder using the filename shown above
+each script. Filenames are matched verbatim by DEMO_VIDEO_MANIFEST in
+index.html — do not rename or the demo will fall back to TTS.
+
+
+───────────────────────────────────────────────────────────────────────
+[1/8]  01-floor-walk.mp4
+       6:30 AM · SHIFT HANDOVER — Maria reviews overnight performance
+───────────────────────────────────────────────────────────────────────
+
+Six thirty. I'm walking the floor before the day shift starts. First thing I do is pull up SWAT on the office screen. My job isn't to manage individual parts — I have buyers and planners for that. My job is to know the health of the entire plant. Is production on track? What went wrong overnight? What do I need to escalate before my ten o'clock with the VP? SWAT answers all three of those questions before I've finished my first coffee. Let me show you.
+
+
+───────────────────────────────────────────────────────────────────────
+[2/8]  02-kpi-scan.mp4
+       6:31 AM · PLANT KPIs — Maria scans the six plant-level numbers
+───────────────────────────────────────────────────────────────────────
+
+Six numbers. That's all I need to know whether today is going to be a good day or a bad day. Four critical issues — that's up from two yesterday. That's bad. Nine at-risk parts. Supplier OTIF at seventy-four percent — we're below our eighty percent target, and it's been trending down for two weeks. Average delay is three point eight days. So here's what this tells me as a plant manager — I've got elevated risk today, my supply chain reliability is deteriorating, and I need to dig in. If all six of these were green, I'd close the laptop and walk the floor. Today I need about six more minutes.
+
+
+───────────────────────────────────────────────────────────────────────
+[3/8]  03-kanban.mp4
+       6:32 AM · KANBAN — Maria checks which product lines are at risk
+───────────────────────────────────────────────────────────────────────
+
+The Kanban gives me exactly the view I need. Not individual parts — product lines. Not supplier names — production months. I can see Dirt is red for April and May. Sports is amber. Two of five product lines with risk this month. I don't fix these myself — I assign them. But I need to know which lines to discuss in my production meeting. The Kanban builds my agenda in ten seconds. If someone in the meeting asks me about the Gravel or City models, I can say — those are green, we're fine. Focus on Dirt and Sports. That kind of confidence comes from having the data.
+
+
+───────────────────────────────────────────────────────────────────────
+[4/8]  04-critical-filter.mp4
+       6:34 AM · CRITICAL FILTER — Maria filters to CRITICAL issues only
+───────────────────────────────────────────────────────────────────────
+
+I open the Issue Worklist and filter straight to CRITICAL. I don't work HIGH or MEDIUM issues — that's for Sarah and her team. I only need to see the four items that might need my authority to resolve. ISS-1041 — rear shock absorber, twenty-two days projected late, no Purchase Order Acknowledgement. That's a potential line stoppage and it might need a VP call to the supplier's exec team. ISS-1038 — frameset, no production finish confirmed. I need the business impact — which customer orders are affected? What's the financial exposure? I can see it all right here without asking anyone.
+
+
+───────────────────────────────────────────────────────────────────────
+[5/8]  05-root-cause.mp4
+       6:37 AM · ROOT CAUSE — Maria investigates why OTIF is dropping
+───────────────────────────────────────────────────────────────────────
+
+Here's the question I need to answer before my VP meeting — why is our OTIF dropping? I open the Performance dashboard and the answer is right there. TrailFlex at seventy-two percent OTIF. SteelCore at sixty-eight percent. These two suppliers are responsible for about eighty percent of our critical issues. And when I look at the trend — it's not a one-time blip. Their lead time variance has been increasing for three months. That's a pattern, not an accident. I'm going to recommend dual-sourcing for both of these suppliers. Before SWAT, I'd need an analyst to pull this data into a PowerPoint. Now I can screenshot this dashboard and drop it into my VP deck in thirty seconds. Data-backed decisions, not gut-feel escalations.
+
+
+───────────────────────────────────────────────────────────────────────
+[6/8]  06-overnight-agents.mp4
+       6:40 AM · AGENT LOG — Maria reviews what the agents did overnight
+───────────────────────────────────────────────────────────────────────
+
+I always check the agent activity log. Six autonomous agents ran all night while nobody was here. The Comms Agent parsed four supplier emails. The Escalation Agent sent two formal notices — one to TrailFlex, one to SteelCore. Risk scores were recalculated across all thirteen Purchase Order lines. I don't review every action — I scan for exceptions. Things the agents flagged because they couldn't handle them automatically. Today there's one — AeroCarbon sent a message about a scope change that the agent couldn't process. I assign that to Sarah. Takes me ten seconds. Everything else — the agents handled it. My night shift supervisor used to email me a two-page summary. Now the agents write the summary and I just check the exception list.
+
+
+───────────────────────────────────────────────────────────────────────
+[7/8]  07-escalations.mp4
+       6:43 AM · ESCALATIONS — Maria adds her personal follow-up to agent escalations
+───────────────────────────────────────────────────────────────────────
+
+Last stop — the Alert Queue. The Escalation Agent already sent formal notices to TrailFlex and SteelCore before dawn. The suppliers already know there's a problem. My role here is to add the executive layer. For the TrailFlex escalation, I add a note — schedule a VP-level call by end of week. For SteelCore — request a formal recovery plan by Wednesday. These notes feed back into the system. Next time the agent drafts an escalation for these suppliers, it includes the context of my previous escalations. The system gets smarter with each interaction. Before SWAT, I'd spend forty-five minutes every morning reading emails from buyers, trying to assemble a picture of what happened overnight. Now I have the picture in six minutes and I'm adding strategic direction on top of it.
+
+
+───────────────────────────────────────────────────────────────────────
+[8/8]  08-wrapup.mp4
+       6:45 AM · DONE — How SWAT changed Maria's life
+───────────────────────────────────────────────────────────────────────
+
+It's six forty-five. Fifteen minutes since I walked in. I know the health of every product line. I know which issues need my authority. I know why our OTIF is dropping and I have a data-backed recommendation for the VP. I've reviewed overnight agent activity and caught the one exception that needed a human. And I've added executive-level context to two supplier escalations. Before SWAT, my mornings were forty-five minutes of email archaeology — piecing together what happened from buyer updates, production reports, and supplier messages scattered across three different systems. My first meeting of the day used to be a status meeting where everyone reported what they knew. Now the status is in SWAT. My meetings are about decisions, not about reporting. That's the real change. SWAT didn't just make me faster. It elevated my job from status-chaser to decision-maker. That's what a plant manager should be doing.
