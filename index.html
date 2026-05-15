@@ -1313,6 +1313,22 @@ body.demo-focus-on #demo-avatar {
   animation:mtgIdleBreathe 5s ease-in-out infinite;
   transform-origin:50% 30%;
 }
+/* Pre-recorded HeyGen avatar video — overlays the static image when a clip is loaded.
+   Hidden by default; shown only when DEMO_VIDEO_MANIFEST has an entry for the step. */
+.mtg-webcam .mtg-presenter-video {
+  position:absolute; inset:0; z-index:2;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 15%;
+  background:#0a0c10;
+  display:none;
+}
+.mtg-webcam.video-on .mtg-presenter-video { display:block; }
+.mtg-webcam.video-on .mtg-presenter-img,
+.mtg-webcam.video-on .mtg-mouth-overlay,
+.mtg-webcam.video-on .mtg-blink-overlay,
+.mtg-webcam.video-on .mtg-gaze-overlay { display:none; }
+.mtg-webcam.video-on { animation:none; }
+.mtg-webcam.video-on .mtg-presenter-video { animation:none; }
 @keyframes mtgIdleBreathe {
   0%,100% { transform:scale(1) translate(0,0); }
   50%     { transform:scale(1.003) translate(0,-0.3px); }
@@ -10882,6 +10898,174 @@ function hideDemoAvatar(){
   setTimeout(()=>{ av.classList.remove('visible','exit','av-speaking','av-pointing'); }, 500);
 }
 
+// ═══════════════════════════════════════════════════════════════════════
+// HEYGEN AVATAR VIDEO MANIFEST
+// ═══════════════════════════════════════════════════════════════════════
+// Pre-recorded HeyGen avatar clips per persona + step. Drop MP4 files into
+// assets/demo-videos/<persona>/ following the names below. When a clip is
+// present, it plays in #mtg-presenter-video and replaces the static image
+// AND the TTS narration (the HeyGen audio carries the voiceover). The
+// step auto-advances on the video's `ended` event. Sub-point highlights
+// fire off the video's `timeupdate` (using `at` ms from step.subPoints),
+// so the SWAT spotlight stays in sync with what the avatar is saying.
+// If a clip is missing, the step gracefully falls back to TTS narration.
+// ═══════════════════════════════════════════════════════════════════════
+const DEMO_VIDEO_MANIFEST = {
+  buyer: {
+    0:  'assets/demo-videos/buyer/01-morning-login.mp4',
+    1:  'assets/demo-videos/buyer/02-red-banner.mp4',
+    2:  'assets/demo-videos/buyer/03-kpi-check.mp4',
+    3:  'assets/demo-videos/buyer/04-kanban.mp4',
+    4:  'assets/demo-videos/buyer/05-triage.mp4',
+    5:  'assets/demo-videos/buyer/06-checkpoints.mp4',
+    6:  'assets/demo-videos/buyer/07-commits.mp4',
+    7:  'assets/demo-videos/buyer/08-buyer-actions.mp4',
+    8:  'assets/demo-videos/buyer/09-overnight-agents.mp4',
+    9:  'assets/demo-videos/buyer/10-comms-agent.mp4',
+    10: 'assets/demo-videos/buyer/11-alert-queue.mp4',
+    11: 'assets/demo-videos/buyer/12-supplier-intel.mp4',
+    12: 'assets/demo-videos/buyer/13-wrapup.mp4',
+  },
+  planner: {
+    0: 'assets/demo-videos/planner/01-arrival.mp4',
+    1: 'assets/demo-videos/planner/02-kanban.mp4',
+    2: 'assets/demo-videos/planner/03-drilldown.mp4',
+    3: 'assets/demo-videos/planner/04-bom-cascade.mp4',
+    4: 'assets/demo-videos/planner/05-demand-gap.mp4',
+    5: 'assets/demo-videos/planner/06-simulation.mp4',
+    6: 'assets/demo-videos/planner/07-validation.mp4',
+    7: 'assets/demo-videos/planner/08-wrapup.mp4',
+  },
+  plant: {
+    0: 'assets/demo-videos/plant/01-floor-walk.mp4',
+    1: 'assets/demo-videos/plant/02-kpi-scan.mp4',
+    2: 'assets/demo-videos/plant/03-kanban.mp4',
+    3: 'assets/demo-videos/plant/04-critical-filter.mp4',
+    4: 'assets/demo-videos/plant/05-root-cause.mp4',
+    5: 'assets/demo-videos/plant/06-overnight-agents.mp4',
+    6: 'assets/demo-videos/plant/07-escalations.mp4',
+    7: 'assets/demo-videos/plant/08-wrapup.mp4',
+  },
+};
+
+function _getStepVideoSrc(persona, idx){
+  const m = DEMO_VIDEO_MANIFEST[persona];
+  return (m && m[idx]) || null;
+}
+
+// Tracks per-step video state so timeupdate handlers can drive subPoints
+// without firing the same cue twice.
+let _stepVideoFiredCues = [];
+let _stepVideoTimeupdateHandler = null;
+let _stepVideoEndedHandler = null;
+let _stepVideoErrorHandler = null;
+
+function _detachStepVideoHandlers(){
+  const v = document.getElementById('mtg-presenter-video');
+  if(!v) return;
+  if(_stepVideoTimeupdateHandler){ v.removeEventListener('timeupdate', _stepVideoTimeupdateHandler); _stepVideoTimeupdateHandler = null; }
+  if(_stepVideoEndedHandler){      v.removeEventListener('ended',      _stepVideoEndedHandler);      _stepVideoEndedHandler = null; }
+  if(_stepVideoErrorHandler){      v.removeEventListener('error',      _stepVideoErrorHandler);      _stepVideoErrorHandler = null; }
+  _stepVideoFiredCues = [];
+}
+
+function _resetPresenterVideo(){
+  const v = document.getElementById('mtg-presenter-video');
+  const cam = document.getElementById('mtg-webcam');
+  _detachStepVideoHandlers();
+  if(v){
+    try{ v.pause(); }catch(e){}
+    v.removeAttribute('src');
+    try{ v.load(); }catch(e){}
+  }
+  if(cam) cam.classList.remove('video-on');
+}
+
+// Returns true if the step is being played from a HeyGen clip (TTS
+// suppressed; auto-advance handled by the video's `ended` event).
+function _tryPlayStepVideo(step){
+  if(!step) return false;
+  const src = _getStepVideoSrc(_activePersona, _demoStep);
+  if(!src) return false;
+
+  const v   = document.getElementById('mtg-presenter-video');
+  const cam = document.getElementById('mtg-webcam');
+  if(!v || !cam) return false;
+
+  _detachStepVideoHandlers();
+
+  // Wire the timeupdate handler that fires subPoints (highlight cues) at
+  // the times the user authored them — interpreted as ms from step start.
+  if(Array.isArray(step.subPoints) && step.subPoints.length){
+    _stepVideoTimeupdateHandler = function(){
+      if(!_demoRunning) return;
+      const tMs = v.currentTime * 1000;
+      step.subPoints.forEach((sub, i)=>{
+        if(_stepVideoFiredCues[i]) return;
+        if(!sub || !sub.pointer) return;
+        if(tMs >= (sub.at || 0)){
+          _stepVideoFiredCues[i] = true;
+          _demoMoveSpotlight(sub.pointer);
+        }
+      });
+    };
+    v.addEventListener('timeupdate', _stepVideoTimeupdateHandler);
+  }
+
+  // When the clip finishes, advance like the TTS path does (1.5s pad).
+  _stepVideoEndedHandler = function(){
+    _detachStepVideoHandlers();
+    if(_demoAuto && _demoRunning) scheduleNextStep(1500);
+  };
+  v.addEventListener('ended', _stepVideoEndedHandler);
+
+  // If the file is missing or unplayable, fall back to TTS narration so
+  // the demo doesn't stall waiting for a clip that will never arrive.
+  _stepVideoErrorHandler = function(){
+    console.warn('[demo] HeyGen clip failed — falling back to TTS:', src);
+    _resetPresenterVideo();
+    if(_demoVoiceOn && step.narration && window.speechSynthesis){
+      demoSpeak(step.narration, ()=>{
+        if(_demoAuto && _demoRunning) scheduleNextStep(1500);
+      });
+    } else {
+      const dur = step.duration || 8000;
+      if(_demoAuto) scheduleNextStep(dur);
+    }
+  };
+  v.addEventListener('error', _stepVideoErrorHandler);
+
+  // Activate the video layer + drive the speaking-state UI elements that
+  // were previously toggled by demoTypewriter / TTS.
+  cam.classList.add('video-on', 'speaking');
+  const waveform = document.getElementById('mtg-waveform');
+  if(waveform) waveform.classList.add('active');
+  const dot = document.getElementById('mtg-speaking-dot');
+  if(dot) dot.classList.add('speaking');
+
+  // Show the full narration text immediately — the avatar is delivering it.
+  const narEl    = document.getElementById('dn-narration-text');
+  const mtgNarEl = document.getElementById('mtg-narration-text');
+  if(narEl)    narEl.textContent    = step.narration || '';
+  if(mtgNarEl) mtgNarEl.textContent = step.narration || '';
+
+  v.src = src;
+  v.muted = false;
+  v.currentTime = 0;
+  const p = v.play();
+  if(p && p.catch){
+    p.catch(err=>{
+      // Autoplay policy can block first play with audio. Retry muted as a
+      // last resort so the visual still runs; the user can unmute via the
+      // existing voice button if needed.
+      console.warn('[demo] video play() rejected, retrying muted:', err);
+      v.muted = true;
+      v.play().catch(()=>{ if(_stepVideoErrorHandler) _stepVideoErrorHandler(); });
+    });
+  }
+  return true;
+}
+
 function startDemo(){
   demoInitVoice();
   _demoStep    = 0;
@@ -11033,6 +11217,7 @@ function exitDemo(){
   clearTimeout(_demoAutoTimer);
   _clearSubPointTimers();
   if(window.speechSynthesis) speechSynthesis.cancel();
+  _resetPresenterVideo();
 
   const narrator = document.getElementById('demo-narrator');
   if(narrator) narrator.style.display='none';
@@ -11084,6 +11269,7 @@ function demoStep(dir){
   if(av) av.classList.remove('av-pointing','av-speaking');
   clearTimeout(_demoAutoTimer);
   if(window.speechSynthesis) speechSynthesis.cancel();
+  _resetPresenterVideo();
   _demoSpeaking = false;
   _demoStep = Math.max(0, Math.min(_activeDemoScript.length-1, _demoStep + dir));
   renderDemoStep();
@@ -11238,6 +11424,12 @@ function renderDemoStep(){
   // Cancel any leftover sub-point timers from the previous step
   _clearSubPointTimers();
 
+  // Reset any video from the previous step before deciding playback mode.
+  _resetPresenterVideo();
+  // Probe the manifest now so the subPoints scheduler below knows whether
+  // to use setTimeout cues (TTS path) or defer to video timeupdate cues.
+  const _videoSrcForStep = _getStepVideoSrc(_activePersona, _demoStep);
+
   setTimeout(()=>{
     const ptr = step.pointer || step.highlight;
     if(ptr){
@@ -11254,7 +11446,10 @@ function renderDemoStep(){
 
     // ── Schedule sub-point moves so the spotlight follows the narration ──
     // Each entry: { at: ms_offset_from_now, pointer: selector }
-    if(Array.isArray(step.subPoints)){
+    // SKIP this when a HeyGen clip exists — _tryPlayStepVideo wires the
+    // same cues to the video's timeupdate so highlights stay in sync with
+    // the recorded audio (which may not match wall-clock setTimeout).
+    if(Array.isArray(step.subPoints) && !_videoSrcForStep){
       step.subPoints.forEach(sub=>{
         if(!sub || !sub.pointer) return;
         const tid = setTimeout(()=>{
@@ -11265,18 +11460,23 @@ function renderDemoStep(){
     }
   }, 1100);
 
-  // ── Speak narration then auto-advance ───────────────────────────────
-  if(_demoVoiceOn && step.narration && window.speechSynthesis){
-    setTimeout(()=>{
-      demoSpeak(step.narration, ()=>{
-        // After speaking ends, wait 1.5s then advance
-        if(_demoAuto && _demoRunning) scheduleNextStep(1500);
-      });
-    }, 500);
-  } else {
-    // No voice: use step duration for auto-advance
-    const dur = step.duration || 8000;
-    if(_demoAuto) scheduleNextStep(dur);
+  // ── Playback: prefer pre-recorded HeyGen clip, fall back to TTS ─────
+  // The video carries its own audio + lip-sync, so we suppress TTS when
+  // a clip plays. Auto-advance is driven by the video's `ended` event.
+  const _videoStarted = _videoSrcForStep ? _tryPlayStepVideo(step) : false;
+  if(!_videoStarted){
+    if(_demoVoiceOn && step.narration && window.speechSynthesis){
+      setTimeout(()=>{
+        demoSpeak(step.narration, ()=>{
+          // After speaking ends, wait 1.5s then advance
+          if(_demoAuto && _demoRunning) scheduleNextStep(1500);
+        });
+      }, 500);
+    } else {
+      // No voice: use step duration for auto-advance
+      const dur = step.duration || 8000;
+      if(_demoAuto) scheduleNextStep(dur);
+    }
   }
 
   // Update waveform animation state
@@ -11413,6 +11613,9 @@ init();
 
   <div class="mtg-webcam" id="mtg-webcam">
     <img class="mtg-presenter-img" id="mtg-presenter-img" alt="Presenter" src="">
+    <!-- Pre-recorded HeyGen avatar clip per demo step. Carries its own audio.
+         Source is set per step from DEMO_VIDEO_MANIFEST; element stays hidden if no clip. -->
+    <video class="mtg-presenter-video" id="mtg-presenter-video" playsinline preload="auto"></video>
     <div class="mtg-mouth-overlay" id="mtg-mouth"></div>
     <div class="mtg-blink-overlay" id="mtg-blink"></div>
     <div class="mtg-gaze-overlay" id="mtg-gaze"></div>
