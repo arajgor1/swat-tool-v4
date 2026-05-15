@@ -1,0 +1,157 @@
+═══════════════════════════════════════════════════════════════════════
+HEYGEN CHARACTER PROMPTS — SWAT Demo Personas
+═══════════════════════════════════════════════════════════════════════
+
+One prompt per persona. Use these in HeyGen's Photo Avatar / AI Avatar
+generator to create a consistent character, then reuse that same avatar
+across all of that persona's clips so the face stays identical between
+steps.
+
+After the visual prompt, each persona has a "Voice notes" block —
+HeyGen lets you pick a voice from its library. Match those traits as
+closely as possible (accent, age, pace, warmth) so the audio feels
+like the same person across all clips.
+
+For consistency across the 13 / 8 / 8 clip series, lock the avatar
+once and reuse — do NOT regenerate the character per clip.
+
+
+───────────────────────────────────────────────────────────────────────
+PERSONA 1 — SARAH MITCHELL · Strategic Sourcing Buyer
+───────────────────────────────────────────────────────────────────────
+
+VISUAL PROMPT (paste into HeyGen Avatar Generator)
+
+A confident professional woman in her early thirties, mixed European
+heritage, shoulder-length dark blonde hair styled neatly, warm hazel
+eyes, subtle natural makeup, friendly approachable expression with a
+slight knowing smile. She is wearing a charcoal-grey blazer over a
+soft cream blouse, minimal jewelry — small stud earrings only.
+Background: a softly blurred modern open-plan office with warm
+ambient lighting, hint of a window with morning daylight to her left,
+a coffee mug on the desk just out of focus. Shot from the chest up,
+straight-on camera angle, eye-level, looking directly into camera as
+if presenting to a colleague. Photorealistic, high detail, soft
+cinematic lighting, shallow depth of field. Calm, alert, in-control
+energy — she has been doing this job for ten years and it shows.
+
+VOICE NOTES
+- Female, North-American English, mid-thirties tone
+- Warm, conversational, slightly fast-paced
+- Confident but not formal — like she's explaining to a peer
+- Minimal vocal fry; clear articulation
+- HeyGen voice suggestion: "Olivia" / "Emma" / "Charlotte" Pro voices
+
+DELIVERY DIRECTION
+She speaks like someone narrating their own workflow — a touch of
+pride, a touch of relief that the system finally works for her. Not
+salesy. Drop the volume slightly on personal asides ("That was
+thirty minutes of work. Now it's ten seconds.") for emphasis.
+
+
+───────────────────────────────────────────────────────────────────────
+PERSONA 2 — DAVID CHEN · Production Planner
+───────────────────────────────────────────────────────────────────────
+
+VISUAL PROMPT (paste into HeyGen Avatar Generator)
+
+A focused professional man in his late thirties, East Asian heritage,
+short tidy black hair with a hint of grey at the temples, dark brown
+eyes behind thin wire-frame glasses, clean-shaven, calm analytical
+expression. He is wearing a navy-blue half-zip pullover over a light
+grey t-shirt — practical, not corporate. Visible behind him on a desk:
+a second monitor edge, a hard hat resting on a shelf, a folded
+hi-vis vest draped over a chair back — subtle cues that he works
+near a factory floor. Background softly blurred, early-morning
+fluorescent office light, slightly cooler colour temperature than a
+boardroom. Shot from the chest up, straight-on, eye-level, looking
+directly into camera. Photorealistic, sharp detail, cinematic
+lighting. Steady, methodical, slightly tired-but-engaged energy —
+he's been at his desk twenty minutes and his coffee is half-gone.
+
+VOICE NOTES
+- Male, North-American English, late thirties tone
+- Measured, even-paced, slightly lower register
+- Analytical and calm, with dry humour ("Which is, you know,
+  literally my job title.")
+- HeyGen voice suggestion: "Ethan" / "Lucas" / "Daniel" Pro voices
+
+DELIVERY DIRECTION
+He's a planner — he thinks before he speaks. Slight pauses before
+key numbers ("twenty-two days projected late") give weight to the
+data. Not dramatic; the seriousness is in the precision. Closing
+line ("turned me from a firefighter into a planner") should land
+with quiet satisfaction, not triumph.
+
+
+───────────────────────────────────────────────────────────────────────
+PERSONA 3 — MARIA GONZALEZ · Plant Operations Manager
+───────────────────────────────────────────────────────────────────────
+
+VISUAL PROMPT (paste into HeyGen Avatar Generator)
+
+A poised, authoritative woman in her mid-forties, Latina heritage,
+shoulder-length dark wavy hair pulled back from her face, deep brown
+eyes, warm sun-touched skin, minimal makeup, a calm experienced
+expression — she has seen a lot and runs a tight ship. She is wearing
+a crisp white open-collar shirt with a slate-blue blazer, a small
+silver pendant necklace, and a visible plant ID badge clipped to the
+blazer lapel. Background: a softly blurred plant manager's office —
+glass partition with a hint of factory floor visible through it, an
+early-morning warm yellow desk lamp glow on one side, the silhouette
+of a hard hat on a shelf. Shot from the chest up, straight-on,
+eye-level, looking directly into camera with steady eye contact.
+Photorealistic, high detail, cinematic lighting, slight warmth in
+the highlights. Quiet command, mentor-like presence, fully awake
+even at 6:30 AM.
+
+VOICE NOTES
+- Female, North-American English with warm undertone, mid-forties
+- Steady, deliberate pace — never rushed
+- Lower-mid register, calm authority
+- Subtle warmth on phrases about her team ("I have buyers and
+  planners for that")
+- HeyGen voice suggestion: "Sophia" / "Isabella" / "Valentina" Pro
+  voices (look for a warmer, more mature option)
+
+DELIVERY DIRECTION
+She's the boss — but the kind of boss who walks the floor every day,
+not the kind who emails. Tone should sound like a mentor walking a
+new hire through her morning routine. Strategic phrases ("dual-
+sourcing for both of these suppliers") get a slight downward inflect
+for finality. Closing line about being a "decision-maker" not a
+"status-chaser" should feel like personal philosophy, not a slogan.
+
+
+───────────────────────────────────────────────────────────────────────
+GENERAL HEYGEN SETTINGS (apply to all three avatars)
+───────────────────────────────────────────────────────────────────────
+
+- Aspect ratio: 4:3 (matches the SWAT meeting-frame webcam panel)
+- Output resolution: 720x540 minimum, 960x720 ideal
+- Background: keep static — do not use animated/parallax backgrounds
+  (they distort the static spotlight overlay in the SWAT app)
+- Avatar movement: subtle head sway + natural blinks ON; large
+  gestures OFF (the panel is narrow, hands rarely visible anyway)
+- Lip sync: high accuracy mode if available
+- Eye contact: directly at camera throughout
+- Pause padding: ~0.4s of silence at start and end of each clip
+  (prevents the clip from cutting off the first/last syllable when
+  the demo's auto-advance logic fires)
+
+
+───────────────────────────────────────────────────────────────────────
+WORKFLOW REMINDER
+───────────────────────────────────────────────────────────────────────
+
+1. Generate the three avatars ONCE using the prompts above.
+2. Lock each avatar in your HeyGen library — name them
+   "Sarah_SWAT", "David_SWAT", "Maria_SWAT".
+3. Generate every step's clip from the matching locked avatar so the
+   face never drifts between clips of the same persona.
+4. Use the narration text from buyer/planner/plant scripts.txt
+   verbatim (don't let HeyGen "improve" the wording — the on-screen
+   typewriter shows the same text, and divergence is jarring).
+5. Save each clip with the exact filename listed in the persona's
+   scripts.txt (matched verbatim by DEMO_VIDEO_MANIFEST in
+   index.html).
